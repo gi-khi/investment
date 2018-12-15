@@ -7,13 +7,34 @@ jobs:
       - checkout
       - run: |
           python example.py
-          sudo pip install pytest pytest-cov coveralls
-          mkdir test-reports
-          pytest --junitxml=test-reports/junit.xml
-          pytest --cov=./
+  test:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run:
+          name: Install Test Tools
+          command: |
+            sudo pip install pytest pytest-cov coveralls
+      - run:
+          name: CircleCI Test Summary
+          command: |
+            mkdir test-reports
+            pytest --junitxml=test-reports/junit.xml
+      - run:
+          name: Coveralls
+          command: |
+            pytest --cov=./
+            coveralls
       - store_test_results:
           path: test-reports
       - store_artifacts:
           path: test-reports
-      - post:
-          - coveralls
+workflows:
+  version: 2
+  test_and_build:
+    jobs:
+      - test
+      - build:
+        requires:
+          - test
