@@ -3,6 +3,13 @@
 [![CircleCI](https://circleci.com/gh/gi-khi/investment.svg?style=svg)](https://circleci.com/gh/gi-khi/investment)
 [![Coverage Status](https://coveralls.io/repos/github/gi-khi/investment/badge.svg?branch=master)](https://coveralls.io/github/gi-khi/investment?branch=master)
 
+## Installation
+
+```console
+pip install --user pipenv
+pipenv install --dev
+```
+
 ## Tools
 
 * [Slack](gi-khi.slack.com)
