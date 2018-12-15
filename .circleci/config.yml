@@ -7,10 +7,9 @@ jobs:
       - checkout
       - run: |
           python example.py
-          sudo pip install coverage
+          sudo pip install pytest
           mkdir test-reports
-          coverage run -m unittest discover -s tests/
-          coverage report && coverage xml -o test-reports/coverage.xml
+          pytest --junitxml=test-reports/junit.xml
       - store_test_results:
           path: test-reports
       - store_artifacts:
