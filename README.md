@@ -7,7 +7,7 @@
 
 ```console
 pip install --user pipenv
-pipenv install --dev
+pipenv install
 ```
 
 ## Testing
