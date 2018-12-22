@@ -8,10 +8,11 @@ pytest = "*"
 pytest-cov = "*"
 coveralls = "*"
 pylint = "*"
+autopep8 = "*"
 
 [packages]
-requests = "*"
 boto3 = "*"
+requests = "*"
 
 [requires]
 python_version = "3.6"

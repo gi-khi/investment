@@ -7,19 +7,21 @@
 
 ```console
 pip install --user pipenv
-pipenv install --dev
+pipenv install
 ```
 
-## Windows tutorial
+## Testing
 
-pip install --user pipenv   
-pipenv install --dev
-pipenv install pytest --dev
-```Run unit test
-pipenv run pytest
+```console
+pipenv shell
+pytest
 ```
 
 ## Tools
 
 * [Slack](gi-khi.slack.com)
 * [Trello](https://trello.com/b/3PsJfjSR/investment)
+
+## Contribution
+
+* [Coding Style](https://www.python.org/dev/peps/pep-0008/)
