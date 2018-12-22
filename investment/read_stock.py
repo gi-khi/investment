@@ -1,7 +1,7 @@
 import requests
 import json
 
-from sms import SMS
+from investment.sms import SMS
 
 class ReadStock:
     def get_price(self):
@@ -26,15 +26,19 @@ class ReadStock:
             notify_msg = '0056 Stock price notice, lower bound matched: 24.36*0.95'
             print(notify_msg)
             # send mail
-            # snde SMS
-            SMS.send(msg=notify_msg)
+            # send SMS
+            sms.send(msg=notify_msg)
         elif price >= u_spec:
             notify_msg = '0056 Stock price notice, upper bound matched: 24.36*1.05'
             print(notify_msg)
             # send mail
             # send SMS
-            SMS.send(msg=notify_msg)
+            sms.send(msg=notify_msg)
+        else:
+            notify_msg = 'Test SMS funtion'
+            sms.send(msg=notify_msg)
 
 if __name__ == '__main__':
     ReadStock = ReadStock()
     price = ReadStock.get_price()
+    ReadStock.check_price(price)
