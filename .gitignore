@@ -108,3 +108,8 @@ test-reports
 
 # vscode
 .vscode
+
+#
+.project
+.settings
+.pydevproject
