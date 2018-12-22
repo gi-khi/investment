@@ -10,6 +10,15 @@ pip install --user pipenv
 pipenv install --dev
 ```
 
+## Windows tutorial
+
+pip install --user pipenv   
+pipenv install --dev
+pipenv install pytest --dev
+```Run unit test
+pipenv run pytest
+```
+
 ## Tools
 
 * [Slack](gi-khi.slack.com)

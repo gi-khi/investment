@@ -9,6 +9,8 @@ pytest-cov = "*"
 coveralls = "*"
 
 [packages]
+requests = "*"
+json = "*"
 
 [requires]
 python_version = "3.6"
