@@ -10,7 +10,18 @@ pip install --user pipenv
 pipenv install --dev
 ```
 
+## Testing
+
+```console
+pipenv shell
+pytest
+```
+
 ## Tools
 
 * [Slack](gi-khi.slack.com)
 * [Trello](https://trello.com/b/3PsJfjSR/investment)
+
+## Contribution
+
+* [Coding Style](https://www.python.org/dev/peps/pep-0008/)
