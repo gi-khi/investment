@@ -2,15 +2,16 @@ import boto3
 import os
 from botocore.exceptions import ClientError
 
-class EMail:
+class AwsEMail:
 
     SENDER = "Kungyu Chen <ha1802000@gmail.com>"
     CHARSET = "UTF-8"
 
     def __init__(self):
         self.client = boto3.client('ses',
-            aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-            aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+            region_name=os.getenv('AWS_REGION'),
+            aws_access_key_id=os.getenv('AWS_ACCESS_KEY'),
+            aws_secret_access_key=os.getenv('AWS_SECRET_KEY'),
         )
 
     def send(self, recipients, subject, content=""):
