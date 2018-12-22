@@ -1,8 +1,7 @@
 import requests
 import json
-
-from sms import SMS
-from aws_email import AwsEMail
+from investment.sms import SMS
+from investment.aws_email import EMail
 
 class ReadStock:
     def get_price(self):
@@ -23,7 +22,7 @@ class ReadStock:
         u_spec = 24.36*(1+flow_percent)
         l_spec = 24.36*(1-flow_percent)
         sms = SMS()
-        email = AwsEMail()
+        email = EMail()
         if price <= l_spec:
             notify_msg = '0056 Stock price notice, lower bound matched: 24.36*0.95'
             print(notify_msg)
@@ -43,8 +42,3 @@ class ReadStock:
             notify_msg = 'Test SMS funtion'
             email.send(['ha1802000@gmail.com'],notify_msg,notify_msg)
             #sms.send(msg=notify_msg)
-
-if __name__ == '__main__':
-    ReadStock = ReadStock()
-    price = ReadStock.get_price()
-    ReadStock.check_price(price)

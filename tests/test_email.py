@@ -1,4 +1,4 @@
-from investment.email import EMail
+from investment.aws_email import EMail
 import unittest
 
 class TestEMail(unittest.TestCase):

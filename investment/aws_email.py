@@ -2,7 +2,7 @@ import boto3
 import os
 from botocore.exceptions import ClientError
 
-class AwsEMail:
+class EMail:
 
     SENDER = "Kungyu Chen <ha1802000@gmail.com>"
     CHARSET = "UTF-8"
