@@ -37,7 +37,7 @@ class EMail:
                 },
                 Source=self.SENDER,
             )
-        except ClientError as e:
-            raise e
+        except ClientError as exception:
+            raise exception
         else:
             return response['MessageId']

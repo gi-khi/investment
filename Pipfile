@@ -9,6 +9,7 @@ pytest-cov = "*"
 coveralls = "*"
 pylint = "*"
 autopep8 = "*"
+yapf = "*"
 
 [packages]
 boto3 = "*"

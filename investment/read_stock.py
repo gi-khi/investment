@@ -4,18 +4,18 @@ import requests
 
 class ReadStock:
     MAIL_LIST = ['ha1802000@gmail.com']
+    URL = 'http://mis.tse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_0056.tw&json=1'
 
     def __init__(self, sms, email):
         self.sms = sms
         self.email = email
 
     def get_price(self):
-        r = requests.get(
-            'http://mis.tse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_0056.tw&json=1')
-        print(r.url)
-        print(r.text)
+        resp = requests.get(self.URL)
+        print(resp.url)
+        print(resp.text)
 
-        source_j = json.loads(r.text)
+        source_j = json.loads(resp.text)
         json_array = (source_j['msgArray'])
         target_price = ''
         for item in json_array:
@@ -25,8 +25,8 @@ class ReadStock:
 
     def check_price(self, price):
         flow_percent = 0.05
-        u_spec = 24.36*(1+flow_percent)
-        l_spec = 24.36*(1-flow_percent)
+        u_spec = 24.36 * (1 + flow_percent)
+        l_spec = 24.36 * (1 - flow_percent)
         print(u_spec)
         print(l_spec)
         if price <= l_spec:
