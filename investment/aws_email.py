@@ -35,8 +35,6 @@ class EMail:
                 Source=self.SENDER,
             )
         except ClientError as e:
-            print(e.response['Error']['Message'])
+            raise e
         else:
-            print("Email sent! Message ID:"),
-            print(response['MessageId'])
-
+            return response['MessageId']

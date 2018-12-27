@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Coveralls
           command: |
-            pipenv run pytest --cov=./
+            pipenv run pytest --cov=./investment/
             coveralls
       - store_test_results:
           path: test-reports

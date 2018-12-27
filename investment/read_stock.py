@@ -1,11 +1,17 @@
 import requests
 import json
-from investment.sms import SMS
-from investment.aws_email import EMail
+
 
 class ReadStock:
+    MAIL_LIST = ['ha1802000@gmail.com']
+
+    def __init__(self, sms, email):
+        self.sms = sms
+        self.email = email
+
     def get_price(self):
-        r = requests.get('http://mis.tse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_0056.tw&json=1')
+        r = requests.get(
+            'http://mis.tse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_0056.tw&json=1')
         print(r.url)
         print(r.text)
 
@@ -21,24 +27,24 @@ class ReadStock:
         flow_percent = 0.05
         u_spec = 24.36*(1+flow_percent)
         l_spec = 24.36*(1-flow_percent)
-        sms = SMS()
-        email = EMail()
+        print(u_spec)
+        print(l_spec)
         if price <= l_spec:
             notify_msg = '0056 Stock price notice, lower bound matched: 24.36*0.95'
             print(notify_msg)
             # send mail
-            email.send(['ha1802000@gmail.com'],notify_msg,notify_msg)
+            self.email.send(self.MAIL_LIST, notify_msg, notify_msg)
             # send SMS
-            #sms.send(msg=notify_msg)
+            # self.sms.send(msg=notify_msg)
         elif price >= u_spec:
             notify_msg = '0056 Stock price notice, upper bound matched: 24.36*1.05'
             print(notify_msg)
             # send mail
-            email.send(['ha1802000@gmail.com'],notify_msg,notify_msg)
+            self.email.send(self.MAIL_LIST, notify_msg, notify_msg)
             # send SMS
-            #sms.send(msg=notify_msg)
+            # self.sms.send(msg=notify_msg)
         else:
             print('Test Case')
             notify_msg = 'Test SMS funtion'
-            email.send(['ha1802000@gmail.com'],notify_msg,notify_msg)
-            #sms.send(msg=notify_msg)
+            self.email.send(self.MAIL_LIST, notify_msg, notify_msg)
+            # self.sms.send(msg=notify_msg)
