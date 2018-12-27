@@ -1,6 +1,7 @@
 import os
 import boto3
 
+
 class SMS:
     def __init__(self):
         self.sns = boto3.client('sns',
@@ -10,7 +11,7 @@ class SMS:
 
     def send(self, phone=os.getenv('PHONE'), msg=''):
         print('send SMS to {0}'.format(phone))
-        self.sns.publish(PhoneNumber = phone, Message = msg)
+        self.sns.publish(PhoneNumber=phone, Message=msg)
 
 # if __name__ == '__main__':
 #     sms = SMS()

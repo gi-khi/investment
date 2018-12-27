@@ -1,5 +1,6 @@
-from example import World
 import unittest
+from example import World
+
 
 class TestWorld(unittest.TestCase):
 
@@ -9,5 +10,6 @@ class TestWorld(unittest.TestCase):
     def test_welcome(self):
         self.assertEqual('hello world', self.world.welcome())
 
+
 if __name__ == '__main__':
-   unittest.main()
+    unittest.main()

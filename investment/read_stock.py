@@ -1,5 +1,5 @@
-import requests
 import json
+import requests
 
 
 class ReadStock:
@@ -17,11 +17,11 @@ class ReadStock:
 
         source_j = json.loads(r.text)
         json_array = (source_j['msgArray'])
-        targetPrice = ''
+        target_price = ''
         for item in json_array:
-            targetPrice = item['z']
-        print(targetPrice)
-        return float(targetPrice)
+            target_price = item['z']
+        print(target_price)
+        return float(target_price)
 
     def check_price(self, price):
         flow_percent = 0.05

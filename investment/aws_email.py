@@ -1,6 +1,7 @@
-import boto3
 import os
+import boto3
 from botocore.exceptions import ClientError
+
 
 class EMail:
 
@@ -9,10 +10,12 @@ class EMail:
 
     def __init__(self):
         self.client = boto3.client('ses',
-            region_name=os.getenv('AWS_REGION'),
-            aws_access_key_id=os.getenv('AWS_ACCESS_KEY'),
-            aws_secret_access_key=os.getenv('AWS_SECRET_KEY'),
-        )
+                                   region_name=os.getenv('AWS_REGION'),
+                                   aws_access_key_id=os.getenv(
+                                       'AWS_ACCESS_KEY'),
+                                   aws_secret_access_key=os.getenv(
+                                       'AWS_SECRET_KEY'),
+                                   )
 
     def send(self, recipients, subject, content=""):
         try:
