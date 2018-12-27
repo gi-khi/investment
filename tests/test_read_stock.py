@@ -13,7 +13,17 @@ class TestReadStock(unittest.TestCase):
     def test_check_price(self):
         readStock = self.read_stock_factory()
         readStock.check_price(25)
-        readStock.email.send.assert_called()
+        readStock.email.send.assert_called_once()
+
+    def test_check_price_lower_bound(self):
+        readStock = self.read_stock_factory()
+        readStock.check_price(23)
+        readStock.email.send.assert_called_once()
+
+    def test_check_price_upper_bound(self):
+        readStock = self.read_stock_factory()
+        readStock.check_price(26)
+        readStock.email.send.assert_called_once()
 
     def read_stock_factory(self):
         smsmock = Mock()
