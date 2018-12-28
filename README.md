@@ -24,4 +24,5 @@ pytest
 
 ## Contribution
 
-* [Coding Style](https://www.python.org/dev/peps/pep-0008/)
+* [Python Coding Style](https://www.python.org/dev/peps/pep-0008/)
+* [Markdown Guide](https://www.markdownguide.org/)
